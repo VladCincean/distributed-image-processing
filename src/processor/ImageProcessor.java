@@ -18,8 +18,7 @@ public class ImageProcessor {
             for (int y = 0; y < image.getHeight(); y++) {
                 Pixel p1 = image.getPixel(x, y);
 
-                int avg = (p1.getR() + p1.getG() + p1.getB()) / 3;
-                byte gray = (byte)(avg & 0xff);
+                int gray = (p1.getR() + p1.getG() + p1.getB()) / 3;
 
                 Pixel p2 = new Pixel(p1.getA(), gray, gray, gray);
 

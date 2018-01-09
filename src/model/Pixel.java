@@ -1,57 +1,56 @@
 package model;
 
 public class Pixel {
-    private byte alpha;
-    private byte red;
-    private byte green;
-    private byte blue;
+    private int alpha;
+    private int red;
+    private int green;
+    private int blue;
 
-    public Pixel(byte alpha, byte red, byte green, byte blue) {
+    public Pixel(int alpha, int red, int green, int blue) {
         this.alpha = alpha;
         this.red = red;
         this.green = green;
         this.blue = blue;
     }
 
-    public byte getA() {
+    public int getA() {
         return alpha;
     }
 
-    public byte getR() {
+    public int getR() {
         return red;
     }
 
-    public byte getG() {
+    public int getG() {
         return green;
     }
 
-    public byte getB() {
+    public int getB() {
         return blue;
     }
 
-    public void setA(byte alpha) {
+    public void setA(int alpha) {
         this.alpha = alpha;
     }
 
-    public void setR(byte red) {
+    public void setR(int red) {
         this.red = red;
     }
 
-    public void setG(byte green) {
+    public void setG(int green) {
         this.green = green;
     }
 
-    public void setB(byte blue) {
+    public void setB(int blue) {
         this.blue = blue;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        Pixel pixel = (Pixel) object;
+        Pixel pixel = (Pixel) o;
 
         if (alpha != pixel.alpha) return false;
         if (red != pixel.red) return false;
@@ -61,11 +60,10 @@ public class Pixel {
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (int) alpha;
-        result = 31 * result + (int) red;
-        result = 31 * result + (int) green;
-        result = 31 * result + (int) blue;
+        int result = alpha;
+        result = 31 * result + red;
+        result = 31 * result + green;
+        result = 31 * result + blue;
         return result;
     }
 

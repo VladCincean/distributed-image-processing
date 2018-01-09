@@ -6,11 +6,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class Image {
-    private String inFilename;
     private BufferedImage image;
 
     public Image(String filename) {
-        this.inFilename = filename;
         loadFromFile(filename);
     }
 
@@ -25,10 +23,10 @@ public class Image {
     public Pixel getPixel(int x, int y) {
         int pixel = image.getRGB(x, y);
 
-        byte a = (byte)((pixel >> (3 * 8)) & 0xff);
-        byte r = (byte)((pixel >> (2 * 8)) & 0xff);
-        byte g = (byte)((pixel >> 8) & 0xff);
-        byte b = (byte)(pixel & 0xff);
+        int a = (pixel >> (3 * 8)) & 0xff;
+        int r = (pixel >> (2 * 8)) & 0xff;
+        int g = (pixel >> 8) & 0xff;
+        int b = pixel & 0xff;
 
         return new Pixel(a, r, g, b);
     }
